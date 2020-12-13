@@ -4,7 +4,8 @@
   "description": "A web app to create and store notes.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "watch": "nodemon server.js"
   },
   "author": "Tommy Forde",
   "license": "MIT",
@@ -18,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/tforde4623/Note_Worthy/issues"
   },
-  "homepage": "https://github.com/tforde4623/Note_Worthy#readme"
+  "homepage": "https://github.com/tforde4623/Note_Worthy#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
 }
