@@ -4,11 +4,9 @@ const bodyParser = require('body-parser');
 const app = express();
 const PORT = process.env.PORT || 3301;
 
-// middleware to make public a static folder
+// middleware
 app.use(express.static('public'));
-// middleware for accepting posted JSONs
 app.use(bodyParser.json());
-// using middleware to parse req queries
 app.use(bodyParser.urlencoded({ extended: true }));
 
 require('./routes/api_routes')(app);
