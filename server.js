@@ -1,10 +1,5 @@
-const { resolveSoa } = require('dns');
 const express = require('express');
-const path = require('path');
-const fs = require('fs');
 const bodyParser = require('body-parser');
-const data = require('./db/db.json');
-const { get } = require('http');
 
 const app = express();
 const PORT = process.env.PORT || 3301;
@@ -16,7 +11,8 @@ app.use(bodyParser.json());
 // using middleware to parse req queries
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
+require('./routes/api_routes')(app);
+require('./routes/html_routes.js')(app)
 
 // Starts the server to begin listening
 app.listen(PORT, () => {

@@ -1,3 +1,6 @@
+const fs = require('fs');
+const data = require('../db/db.json');
+
 module.exports = app => {
   // GET api routes
   app.get('/api/notes', (req, res) => {
@@ -7,15 +10,12 @@ module.exports = app => {
 
   // POST api routes
   app.post('/api/notes', (req, res) => {
-    let data = {};
     fs.readFile('./db/db.json', (err, content) => {
-      const json = JSON.parse(content) || [];
-      data = req.body;
-      // let json = JSON.parse(content);
-      json.push(data);
+      const json = JSON.parse(content);
+      json.push(req.body);
       // // write file with new data
       fs.writeFile('./db/db.json', JSON.stringify(json), () => console.log('Wrote to file!'));
-      res.send(data); // return new data
+      res.send(json); // return new data
     });
   });
 
