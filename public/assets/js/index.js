@@ -53,7 +53,7 @@ const renderActiveNote = () => {
 const handleNoteSave = function () {
   const newNote = {
     title: $noteTitle.val(),
-    text: $noteText.val(),
+    text: $noteText.val()
   };
 
   saveNote(newNote).then(() => {
@@ -104,9 +104,7 @@ const handleRenderSaveBtn = function () {
 // Render's the list of note titles
 const renderNoteList = (notes) => {
   $noteList.empty();
-
   const noteListItems = [];
-
   // Returns jquery object for li with given text and delete button
   // unless withDeleteButton argument is provided as false
   const create$li = (text, withDeleteButton = true) => {
