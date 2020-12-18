@@ -2,6 +2,8 @@ const fs = require('fs');
 const data = require('../db/db.json');
 const { v4: uuidv4 } = require('uuid');
 
+// maybe fix empty list issue
+
 module.exports = app => {
   // GET api routes
   app.get('/api/notes', (req, res) => {

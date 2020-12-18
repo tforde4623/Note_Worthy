@@ -1,11 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3301;
 
 // middleware
-app.use(express.static('public'));
+app.use("/public", express.static(path.join(__dirname, 'public'))); //test this and the added /public/ to linked files in html
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
